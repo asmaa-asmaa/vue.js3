@@ -1,0 +1,29 @@
+.red {
+    color: red;
+}
+.blue {
+    color: blue;
+}
+.black {
+    color: black;
+}
+.green {
+    color: green;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.colors {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.colors span {
+    margin-right: 5px;
+    width:20px;
+    height:20px;
+}

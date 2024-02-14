@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>learn vue.js 3</title>
+    
+</head>
+<body>
+
+
+
+    
+<div id="app-root">
+
+    
+    <h1>my name is {{ name }}</h1>
+    <p>my age is {{ age }}</p>
+    <p>{{ name.length > 4? name : "name is too short"}}we are happy to see you</p>
+    <h2>{{ sayHi("afternoon", name)}}</h2>
+    <a v-bind:href="link">test</a>
+    <a :href="link">test</a>
+    <img v-bind:src="" alt="">
+    
+    <h2>number is {{ number }}</h2>
+    <button v-on:click="testFunction">click me</button>
+    <button @click="testFunction">click me</button>
+    <button v-on:dblclick="testFunction">click me</button>
+    <a href="https://www.google.com/"@click.prevent>click link</a>
+    <form action=""@submit.prevent></form>
+    <a href="#"@click.once="testMe">click once</a>
+    <input type="text" @keyup="printMyName">
+    <input type="text" @keydown="printMyName"> 
+    <input type="text" @keydown.enter="printMyName">
+    <input type="text" @keydown.alt.enter="printMyName">
+    <label for="textInp">{{ name }}</label>
+    <input type="text" @keyup="updateValue" name="textInp" id="textInp">
+    <label for="textInp">{{ name }}</label>
+    <input type="text" v-model="name" name="textInp" id="textInp">
+    <label for="textInp-2">{{ city }}</label>
+    <input type="text" name="textInp-2" id="textInp-2">
+    <button @click="name = 'mohamed'">click</button>
+    <form action="" @submit.prevent="sendData"> 
+     <!--<label for="username">enter your name</label>
+     <input type="text" v-model="name" name="username">
+     <label for="email">enter your email</label>
+     <input type="email" v-model="email" name="email">
+     <label for="password">enter your password</label>
+     <input type="password" v-model="password" name="password">-->
+     <label for="username">enter your name</label>
+     <input type="text" v-model="newUser.name" name="username">
+     <label for="email">enter your email</label>
+     <input type="email" v-model="newUser.email" name="email">
+     <label for="password">enter your password</label>
+     <input type="password" v-model="newUser.password" name="password">
+     <input type="submit">
+    </form> 
+     <!--<h1>number one is: {{ numberOne }}</h1>
+     <h1>number one x 2: {{ numOneChange() }}</h1>
+     <button @click="numberOne++">  number one change</button>
+     <h2>number two is: {{ numberTwo }}</h2>
+     <h2>number two + 10: {{ numTwoChange() }}</h2>
+     <button @click="numberTwo++">number two change</button> -->
+     <h1>number one is: {{ numberOne }}</h1>
+     <h1>number one x 2: {{ numOneChange }}</h1>
+     <button @click="numberOne++">  number one change</button>
+     <h2>number two is: {{ numberTwo }}</h2>
+     <h2>number two + 10: {{ numTwoChange }}</h2>
+     <button @click="numberTwo++">number two change</button>
+     <h2 :id="myColor" :class="myColor">My Title</h2>
+     <input type="text" v-model="myColor">
+     <h3 :style="`color: ${myColor}`">my style binding</h3>
+     <h3 :style="`font-size: ${myFont}px`">my font style binding</h3>
+     <input type="number" v-model="myFont"> 
+     <h3>his name is {{ name }}, his age is {{ age }}</h3>
+     <p v-if="age < 30"> his age is younger than 30</p>
+     <p v-else-if="age == 30">his age is equal 30</p>
+     <p v-else>his age is older than 30</p>
+     <button @click="age++">increase age</button>
+     <h3>his name is {{ name }}, his age is {{ age }}</h3>
+     <p v-show="age < 30">his age is younger than 30</p>
+     <p v-show="age == 30">his age is equal 30</p>
+     <p v-show="age > 30">his age is older than 30</p>
+     <button @click="age++">increase age</button>
+     <h2 v-for="(name, i) in students" :key="i"> {{ name }}</h2>
+     <h2 v-for="student in students" :key="student.id">
+        <p>student name is {{ student.name }}</p>
+        <p>student id is {{ student.id }}</p>
+        <p>student age is {{ student.age }}</p>
+        <hr>
+     </h2>
+     <div class="container">
+        <h2 style="text-align:center">products</h2>
+        <div class="card" v-for="item in products" :key="item.id">
+            <h3 class="title">{{item.title}}</h3>
+            <p class="desc">{{item.description}}</p>
+            <p class="brand">{{item.brand}}</p>
+            <div class="colors">
+                <span v-for="color in item.colors" :style="`background: ${color}`">{{color}}</span>
+        </div>
+            <p class="price">{{item.price}}</p>
+
+    </div>
+
+    <input type="text" ref="myInput">
+    <h2 ref="myTitle">hello</h2>
+    <h3 ref="myT">my age is {{ age }}</h3>
+    <button @click="checkRefs">click me</button>
+    <my_component></my_component>
+
+
+    <h2 style="text-align: center;">{{ age }}</h2>
+
+</div>
+<div id="app-root-2" class="students">
+    <h2 style="text-align:center">students</h2>
+    <h4 v-for="(name, i) in students" :key="i"> {{ name }}</h4>
+    <button @click="increaseAge">click here</button>
+    <my_component></my_component>
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="./script.js"></script>
+
+
+     <!-- <script>
+      const { createApp } = Vue;
+
+createApp({
+
+    data() {
+        return {
+            name: "ahmed",
+            age: 29,
+            link: "http://google.com",
+
+        };
+    },
+    methods: {
+        sayHi(time, name) {
+            return  "good"  + " "+ time + " , "+ name;
+        },
+    }
+
+}).mount("#app-root")
+    </script> -->
+  
+</body>
+</html>
